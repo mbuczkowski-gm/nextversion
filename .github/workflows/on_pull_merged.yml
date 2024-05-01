@@ -80,14 +80,14 @@ jobs:
       - name: Checkout Pull Request base branch
         id: checkout
         if: steps.pull-request.outputs.result
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           github-actions-managed: true
           ref: ${{ steps.pull-request.outputs.base }}
       - name: Get Unreleased notes
         id: unreleased
         if: steps.pull-request.outputs.result
-        uses: vemel/nextchange@0.1.0
+        uses: vemel/nextchange@latest
         with:
           github-actions-managed: true
           get: Unreleased
@@ -138,7 +138,7 @@ jobs:
       - name: Build Release notes
         id: notes
         if: steps.pull-request.outputs.result
-        uses: vemel/nextchange@0.1.0
+        uses: vemel/nextchange@latest
         with:
           github-actions-managed: true
           set: ${{ steps.release.outputs.body }}
@@ -147,7 +147,7 @@ jobs:
       - name: Get suggested version
         id: version
         if: steps.pull-request.outputs.result
-        uses: vemel/nextversion@0.1.1
+        uses: vemel/nextversion@latest
         with:
           github-actions-managed: true
           path: ./package.json
