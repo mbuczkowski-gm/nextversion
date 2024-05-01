@@ -54,7 +54,7 @@ outputs:
   raw-input:
     description: "Raw string input"
 runs:
-  using: "node18"
+  using: "node20"
   main: "dist/index.js"
 branding:
   icon: "tag"
